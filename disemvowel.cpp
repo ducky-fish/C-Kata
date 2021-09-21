@@ -14,3 +14,13 @@ std::string disemvowel(const std::string& str) {
   }
   return fixed;
 }
+
+//TOP ANSWER / BEST PRACTICE by: devnuhl and others
+
+# include <string>
+# include <regex>
+std::string disemvowel2(std::string str)
+{
+  std::regex vowels("[aeiouAEIOU]");
+  return std::regex_replace(str, vowels, "");
+}
