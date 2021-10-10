@@ -4,6 +4,7 @@
 
 //MY CODE
 
+#include <cmath>
 //poweredUp : takes two int and raises first int to power of second int 
 
 int poweredUp(int n, int p){
@@ -21,21 +22,9 @@ bool narcissistic( int value ){
   int n = 1;
   int tempResult = 0;  
   
-  int powerOf = 0;
+  int powerOf = log10(copyV) + 1;
   int result = 0;
- 
-//returns the number of place values in int
-  while(copyV > n){  
-    powerOf += 1;
-    n *= 10;
-  }
 
-//calculates the 1's place 
-  n = 10;
-  result += poweredUp((copyV%n),powerOf);
-  copyV -= copyV%n;
-  
-//if int is larger than 10 then the rest of the number is calculated.
   while(copyV){
     tempResult = (copyV%(n*10));
     result += poweredUp(tempResult/n, powerOf);
@@ -45,6 +34,7 @@ bool narcissistic( int value ){
   
   return (result == value);
 }
+
 
 //Best Practice
 #include <cmath>
